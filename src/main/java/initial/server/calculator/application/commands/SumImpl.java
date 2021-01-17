@@ -1,6 +1,6 @@
-package greeting.server.calculator.application.commands;
+package initial.server.calculator.application.commands;
 
-import greeting.server.calculator.domain.commands.Sum;
+import initial.server.calculator.domain.commands.Sum;
 
 public class SumImpl implements Sum {
     @Override

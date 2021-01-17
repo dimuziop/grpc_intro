@@ -1,11 +1,9 @@
-package greeting.client;
+package initial.client;
 
-import dev.dimuziop.dummy.DummyServiceGrpc;
 import dev.dimuziop.greet.GreetRequest;
 import dev.dimuziop.greet.GreetResponse;
 import dev.dimuziop.greet.GreetServiceGrpc;
 import dev.dimuziop.greet.Greeting;
-import greeting.server.GreetServiceImpl;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 

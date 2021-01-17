@@ -1,4 +1,4 @@
-package greeting.server;
+package initial.server;
 
 import javax.inject.Inject;
 

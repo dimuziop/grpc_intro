@@ -1,4 +1,4 @@
-package greeting.server.calculator.domain;
+package initial.server.calculator.domain;
 
 public interface Calculate {
 

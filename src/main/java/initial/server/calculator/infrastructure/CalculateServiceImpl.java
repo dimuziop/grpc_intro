@@ -1,11 +1,10 @@
-package greeting.server.calculator.infrastructure;
+package initial.server.calculator.infrastructure;
 
 import dev.dimuziop.calculator.Sum;
 import dev.dimuziop.calculator.SumRequest;
 import dev.dimuziop.calculator.SumResponse;
 import dev.dimuziop.calculator.SumServiceGrpc;
-import dev.dimuziop.greet.GreetServiceGrpc;
-import greeting.server.calculator.domain.Calculate;
+import initial.server.calculator.domain.Calculate;
 import io.grpc.stub.StreamObserver;
 
 /**

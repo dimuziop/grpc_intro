@@ -1,4 +1,4 @@
-package greeting.server;
+package initial.server;
 
 import dev.dimuziop.greet.GreetRequest;
 import dev.dimuziop.greet.GreetResponse;

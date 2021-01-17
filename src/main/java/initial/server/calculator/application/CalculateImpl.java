@@ -1,7 +1,7 @@
-package greeting.server.calculator.application;
+package initial.server.calculator.application;
 
-import greeting.server.calculator.domain.Calculate;
-import greeting.server.calculator.domain.commands.Sum;
+import initial.server.calculator.domain.Calculate;
+import initial.server.calculator.domain.commands.Sum;
 
 import javax.inject.Inject;
 

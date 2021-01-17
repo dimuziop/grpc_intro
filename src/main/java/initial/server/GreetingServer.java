@@ -1,11 +1,11 @@
-package greeting.server;
+package initial.server;
 
 import eu.lestard.easydi.EasyDI;
-import greeting.server.calculator.application.CalculateImpl;
-import greeting.server.calculator.application.commands.SumImpl;
-import greeting.server.calculator.domain.Calculate;
-import greeting.server.calculator.domain.commands.Sum;
-import greeting.server.calculator.infrastructure.CalculateServiceImpl;
+import initial.server.calculator.application.CalculateImpl;
+import initial.server.calculator.application.commands.SumImpl;
+import initial.server.calculator.domain.Calculate;
+import initial.server.calculator.domain.commands.Sum;
+import initial.server.calculator.infrastructure.CalculateServiceImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 

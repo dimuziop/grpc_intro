@@ -1,12 +1,9 @@
-package greeting.client.calculator;
+package initial.client.calculator;
 
 import dev.dimuziop.calculator.SumRequest;
 import dev.dimuziop.calculator.SumResponse;
 import dev.dimuziop.calculator.SumServiceGrpc;
 import dev.dimuziop.calculator.Sum;
-import dev.dimuziop.greet.GreetResponse;
-import dev.dimuziop.greet.GreetServiceGrpc;
-import dev.dimuziop.greet.Greeting;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
