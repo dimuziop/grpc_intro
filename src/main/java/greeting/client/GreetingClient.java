@@ -1,0 +1,39 @@
+package greeting.client;
+
+import dev.dimuziop.dummy.DummyServiceGrpc;
+import dev.dimuziop.greet.GreetRequest;
+import dev.dimuziop.greet.GreetResponse;
+import dev.dimuziop.greet.GreetServiceGrpc;
+import dev.dimuziop.greet.Greeting;
+import greeting.server.GreetServiceImpl;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+
+/**
+ * User: patricio
+ * Date: 15/1/21
+ * Time: 20:40
+ */
+public class GreetingClient {
+    public static void main(String[] args) {
+        System.out.println(" hello to my grcp cleint");
+
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+
+        // DummyServiceGrpc.DummyServiceBlockingStub syncClient = DummyServiceGrpc.newBlockingStub(channel);
+        // DummyServiceGrpc.DummyServiceFutureStub syncClient = DummyServiceGrpc.newFutureStub(channel);
+
+        GreetServiceGrpc.GreetServiceBlockingStub greetServiceBlockingStub = GreetServiceGrpc.newBlockingStub(channel);
+
+        Greeting greeting = Greeting.newBuilder().setFirstName("Patricio").setLastName("Di Muzio").build();
+
+        GreetRequest greetRequest = GreetRequest.newBuilder().setGreeting(greeting).build();
+
+        GreetResponse greetResponse = greetServiceBlockingStub.greet(greetRequest);
+
+        System.out.println(greetResponse.getResult());
+
+        channel.shutdown();
+
+    }
+}
