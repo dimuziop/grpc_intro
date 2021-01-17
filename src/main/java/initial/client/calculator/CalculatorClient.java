@@ -1,9 +1,6 @@
 package initial.client.calculator;
 
-import dev.dimuziop.calculator.SumRequest;
-import dev.dimuziop.calculator.SumResponse;
-import dev.dimuziop.calculator.SumServiceGrpc;
-import dev.dimuziop.calculator.Sum;
+import dev.dimuziop.calculator.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -18,15 +15,23 @@ public class CalculatorClient {
 
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
 
-        SumServiceGrpc.SumServiceBlockingStub sumServiceStub = SumServiceGrpc.newBlockingStub(channel);
+        CalculatorServiceGrpc.CalculatorServiceBlockingStub service = CalculatorServiceGrpc.newBlockingStub(channel);
 
-        Sum sym = Sum.newBuilder().setA(5).setB(10).build();
+        /*Sum sym = Sum.newBuilder().setA(5).setB(10).build();
 
         SumRequest sumRequest = SumRequest.newBuilder().setCommand(sym).build();
 
         SumResponse sumResponse = sumServiceStub.sum(sumRequest);
 
-        System.out.println(sumResponse.getResponse());
+        System.out.println(sumResponse.getResponse());*/
+
+        PrimeNumberDecompositionRequest request = PrimeNumberDecompositionRequest.newBuilder()
+                .setA(IntegerMonomial.newBuilder().setA(120).build())
+                .build();
+
+        service.primeNumberDecomposition(request).forEachRemaining(response -> {
+            System.out.println(response.getResponse());
+        });
 
         channel.shutdown();
     }

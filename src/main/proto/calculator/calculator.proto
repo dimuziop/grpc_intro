@@ -10,6 +10,10 @@ message Sum {
   int32 b = 2;
 }
 
+message IntegerMonomial {
+  int32 a = 1;
+}
+
 message SumRequest {
   Sum command = 1;
 }
@@ -18,7 +22,17 @@ message SumResponse {
   int32 response = 1;
 }
 
-service SumService {
+message PrimeNumberDecompositionRequest {
+  IntegerMonomial a = 1;
+}
+
+message PrimeNumberDecompositionResponse {
+  int32 response = 1;
+}
+
+service CalculatorService {
   //unary
   rpc Sum(SumRequest) returns (SumResponse) {};
+
+  rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (stream PrimeNumberDecompositionResponse) {};
 }

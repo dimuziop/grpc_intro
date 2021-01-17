@@ -2,8 +2,10 @@ package initial.server;
 
 import eu.lestard.easydi.EasyDI;
 import initial.server.calculator.application.CalculateImpl;
+import initial.server.calculator.application.commands.PrimeNumberDecompositionImpl;
 import initial.server.calculator.application.commands.SumImpl;
 import initial.server.calculator.domain.Calculate;
+import initial.server.calculator.domain.commands.PrimeNumberDecomposition;
 import initial.server.calculator.domain.commands.Sum;
 import initial.server.calculator.infrastructure.CalculateServiceImpl;
 import io.grpc.Server;
@@ -24,6 +26,7 @@ public class GreetingServer {
         EasyDI easyDI = new EasyDI();
         easyDI.bindInterface(Sum.class, SumImpl.class);
         easyDI.bindInterface(Calculate.class, CalculateImpl.class);
+        easyDI.bindInterface(PrimeNumberDecomposition.class, PrimeNumberDecompositionImpl.class);
 
         Server server = ServerBuilder.forPort(50051)
                 .addService(new GreetServiceImpl())
