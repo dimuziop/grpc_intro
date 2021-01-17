@@ -1,9 +1,6 @@
 package initial.client;
 
-import dev.dimuziop.greet.GreetRequest;
-import dev.dimuziop.greet.GreetResponse;
-import dev.dimuziop.greet.GreetServiceGrpc;
-import dev.dimuziop.greet.Greeting;
+import dev.dimuziop.greet.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -23,13 +20,24 @@ public class GreetingClient {
 
         GreetServiceGrpc.GreetServiceBlockingStub greetServiceBlockingStub = GreetServiceGrpc.newBlockingStub(channel);
 
-        Greeting greeting = Greeting.newBuilder().setFirstName("Patricio").setLastName("Di Muzio").build();
+        /*Greeting greeting = Greeting.newBuilder().setFirstName("Patricio").setLastName("Di Muzio").build();
 
         GreetRequest greetRequest = GreetRequest.newBuilder().setGreeting(greeting).build();
 
         GreetResponse greetResponse = greetServiceBlockingStub.greet(greetRequest);
 
-        System.out.println(greetResponse.getResult());
+        System.out.println(greetResponse.getResult());*/
+
+        GreetManyTimesRequest greetManyTimesRequest = GreetManyTimesRequest
+                .newBuilder()
+                .setGreeting(Greeting.newBuilder()
+                        .setFirstName("Patricio")
+                        .setLastName("Di Muzio")
+                        .build())
+                .build();
+
+        greetServiceBlockingStub.greetManyTimes(greetManyTimesRequest)
+                .forEachRemaining(greetManyTimesResponse -> System.out.println(greetManyTimesResponse.getResult()));
 
         channel.shutdown();
 
